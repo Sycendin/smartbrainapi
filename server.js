@@ -57,7 +57,7 @@ const database = {
     ]
 }
 app.get('/', (req, res)=>{
-    res.send(database.users)
+    res.send("it's working")
 })
 //signin
 app.post('/signin', (req, res)=>{signin.handleSignin(req, res, db, bcrypt)})
@@ -73,8 +73,8 @@ app.post('/imageurl', (req, res) =>{image.handleApiCall(req, res, db)})
 
 
 
-app.listen(3001, () =>{
-    console.log('running on port 3001')
+app.listen(process.env.PORT || 3001, () =>{
+    console.log(`app is running on port ${process.env.PORT}`);
 })
 
 
